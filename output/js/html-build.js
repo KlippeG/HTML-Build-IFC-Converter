@@ -14,8 +14,13 @@ function main() {
 	console.log(num_floors);
 	
 	// add data to the properties box
-	$('props-').prepend('number of floors is '+num_floors);
-	$('props-').prepend('site elevation is '+$('site-').attr('elev')+'<br>');
+	$('props-').prepend('Number of floors: '+num_floors);
+	$('props-').prepend('Site elevation: '+$('site-').attr('elev')+'<br>');
+	$('props-').prepend('Site latitude: '+$('site-').attr('lat')+'<br>');
+	$('props-').prepend('<h4>Properties</h4>Site longitude: '+$('site-').attr('long')+'<br>');
+	
+	$('h1').prepend($('project-').attr('name')+'<br>');
+	
 	
 	// load the plan so we can edit it
 	plan('happy');
@@ -26,7 +31,7 @@ function main() {
 		$( this ).on("click", function(){
 			//$('plan-').css("background-color","black");
 			
-			changePlan($(this).attr('name')+':'+$(this).attr('level'));
+			changePlan('Floor name: ' + $(this).attr('name') + '<br>Level: ' + $(this).attr('level') + '<br>Elevation: ' + $(this).attr('elev'));
 			//$( this ).innerHTML
 		});
 	});
